@@ -51,9 +51,9 @@ A new from-scratch MQTT client has been added in `src/TerraLib.h` and `src/Terra
 
 - Class: `TerraLib`
 - Alias verbs:
-  - `give(...)` → publish
-  - `get(...)` → subscribe
-  - `unget(...)` → unsubscribe
+  - `write(...)` → publish
+  - `read(...)` → subscribe
+  - `unread(...)` → unsubscribe
   - `link(...)` → connect
   - `unlink()` → disconnect
 - DHT + ESP32 example: `examples/terrabasic/terrabasic.ino` (WiFi, DHT22, LED control, `TerraLib`)
@@ -65,7 +65,7 @@ A new from-scratch MQTT client has been added in `src/TerraLib.h` and `src/Terra
 2. Use `TerraLib terra(wifiClient);` and `terra.setServer("broker", 1883);`.
 3. Set callback with `terra.setCallback(onMqttMessage);`.
 4. Connect with `terra.link("TerraClient-ESP32");`.
-5. Use `terra.get("terra/control/led");` for subscription and `terra.give("terra/data/temperature", "25.0");` for publish.
+5. Use `terra.read("terra/control/led");` for subscription and `terra.write("terra/data/temperature", "25.0");` for publish.
 6. Call `terra.loop();` from `loop()`.
 
 ## License

@@ -143,10 +143,10 @@ public:
         disconnect();
         return true;
     }
-    boolean give(const char *topic, const char *payload) { return publish(topic, payload); }
-    boolean give(const char *topic, const char *payload, boolean retained) { return publish(topic, payload, retained); }
-    boolean give(const char *topic, const uint8_t *payload, unsigned int plength) { return publish(topic, payload, plength); }
-    boolean give(const char *topic, const uint8_t *payload, unsigned int plength, boolean retained) { return publish(topic, payload, plength, retained); }
+    boolean write(const char *topic, const char *payload) { return publish(topic, payload); }
+    boolean write(const char *topic, const char *payload, boolean retained) { return publish(topic, payload, retained); }
+    boolean write(const char *topic, const uint8_t *payload, unsigned int plength) { return publish(topic, payload, plength); }
+    boolean write(const char *topic, const uint8_t *payload, unsigned int plength, boolean retained) { return publish(topic, payload, plength, retained); }
     boolean publish(const char *topic, const char *payload);
     boolean publish(const char *topic, const char *payload, boolean retained);
     boolean publish(const char *topic, const uint8_t *payload, unsigned int plength);
@@ -157,9 +157,9 @@ public:
     int endPublish();
     virtual size_t write(uint8_t);
     virtual size_t write(const uint8_t *buffer, size_t size);
-    boolean get(const char *topic) { return subscribe(topic); }
-    boolean get(const char *topic, uint8_t qos) { return subscribe(topic, qos); }
-    boolean unget(const char *topic) { return unsubscribe(topic); }
+    boolean read(const char *topic) { return subscribe(topic); }
+    boolean read(const char *topic, uint8_t qos) { return subscribe(topic, qos); }
+    boolean unread(const char *topic) { return unsubscribe(topic); }
     boolean subscribe(const char *topic);
     boolean subscribe(const char *topic, uint8_t qos);
     boolean unsubscribe(const char *topic);

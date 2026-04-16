@@ -67,7 +67,7 @@ void connectMqtt()
         if (terra.connect("TerraClient-ESP32"))
         {
             Serial.println(" connected");
-            terra.get(ledTopic);
+            terra.read(ledTopic);
         }
         else
         {
@@ -114,9 +114,9 @@ void loop()
         {
             char buf[64];
             snprintf(buf, sizeof(buf), "%.2f", t);
-            terra.give(tempTopic, buf);
+            terra.write(tempTopic, buf);
             snprintf(buf, sizeof(buf), "%.2f", h);
-            terra.give(humTopic, buf);
+            terra.write(humTopic, buf);
             Serial.printf("Published temperature=%.2f humidity=%.2f\n", t, h);
         }
         else
